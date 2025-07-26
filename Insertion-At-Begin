@@ -1,0 +1,55 @@
+# Insertion At End operation on Double LinkedList
+
+#Program
+
+class Node:
+
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+        self.prev=None
+
+class DoublyLinkedList:
+
+    def __init__(self):
+        self.head=None
+
+    def iae(self,data):
+        new_node=Node(data)
+        if self.head is None:
+            self.head=new_node
+            return 
+        temp=self.head
+        while temp.next:
+            temp=temp.next
+        temp.next=new_node
+        new_node.prev=temp
+
+    def display(self):
+        temp=self.head
+        print("Double LinkedList:")
+        while temp:
+            print(temp.data, end=" <--> ")
+            temp=temp.next
+        print("None")
+
+
+dll=DoublyLinkedList()
+n= int(input("Enter The No Of Elements to Insert At End: "))
+for i in range(n):
+    val=int(input(f"Enter the element {i+1}: "))
+    dll.iae(val)
+dll.display()
+
+
+#Output:-
+
+Enter The No Of Elements to Insert At End:  5
+Enter the element 1:  99
+Enter the element 2:  88
+Enter the element 3:  77
+Enter the element 4:  66
+Enter the element 5:  55
+Double LinkedList:
+99 <--> 88 <--> 77 <--> 66 <--> 55 <--> None
+
